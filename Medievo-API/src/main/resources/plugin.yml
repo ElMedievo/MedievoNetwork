@@ -1,0 +1,7 @@
+name: Medievo-API
+version: ${project.version}
+main: org.elmedievo.medievoapi.MedievoAPI
+loadbefore: [Medievo, Medievo-Utils]
+authors: [BGMP, BGem]
+description: Medieval API.
+website: https://elmedievo.org/

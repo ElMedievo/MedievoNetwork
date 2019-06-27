@@ -1,0 +1,70 @@
+name: Medievo
+version: ${project.version}
+main: org.elmedievo.medievo.Medievo
+authors: [BGMP, BGMM, BGem]
+description: El nuevo plugin medieval
+commands:
+  coordinates:
+    usage: /coordinates
+    description: Broadcasts your current coordinates.
+    aliases: [bcoords, coord, coords]
+  rank:
+    usage: /rank
+    description: Command for managing ranks.
+  clan:
+    usage: /clan
+    description: Command for managing clans.
+  clans:
+    usage: /clans
+    description: Displays a list of the existent clans.
+  accept:
+    usage: /accept
+    description: Accepts a clan invitation.
+  decline:
+    usage: /decline
+    description: Declines a clan invitation.
+  admin:
+    usage: /admin
+    description: Toggles admin chat.
+    aliases: [a]
+  team:
+    usage: /team
+    description: Toggles clan chat.
+    aliases: [t, c]
+  global:
+    usage: /global
+    description: Toggles global chat.
+    aliases: [g]
+  reloadconfig:
+    usage: /reloadconfig
+    description: Reloads the plugin configuration.
+    aliases: [rlconfig]
+  stats:
+    usage: /stats
+    description: Displays player stats.
+  materials:
+    usage: /materials
+    description: Prompts a list of valid bank materials.
+  market:
+    usage: /market
+    description: Opens the market GUI.
+  reloadmarket:
+    usage: /reloadmarket
+    description: Reloads the market.
+    aliases: [rlmarket]
+permissions:
+  medievo.rank:
+    description: Grants you access to the /rank command.
+    default: op
+  medievo.chat.admin:
+    description: Grants you access to the /admin command for chat purposes.
+    default: false
+  medievo.chat.color:
+    description: Grants you access to use colors in chat.
+    default: false
+  medievo.reloadconfig:
+    description: Allows you to reload the plugin's configuration file.
+    default: op
+  medievo.reloadmarket:
+    description: Allows you to reload the market configuration.
+    default: op
