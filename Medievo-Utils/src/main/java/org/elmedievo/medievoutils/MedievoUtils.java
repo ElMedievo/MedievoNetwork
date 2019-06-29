@@ -13,7 +13,7 @@ import static org.elmedievo.medievoutils.Configuration.LoadConfig.loadConfig;
 import static org.elmedievo.medievoutils.Scoreboard.Scoreboard.loadScoreboardParams;
 import static org.elmedievo.medievoutils.util.CommandRegistry.registerCommands;
 import static org.elmedievo.medievoutils.util.EventRegistry.registerEvents;
-
+/*Test commit*/
 public final class MedievoUtils extends JavaPlugin {
 
     public static MedievoUtils instance;
