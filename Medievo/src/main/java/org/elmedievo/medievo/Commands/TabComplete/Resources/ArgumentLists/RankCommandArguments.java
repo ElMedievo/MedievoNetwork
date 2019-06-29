@@ -9,7 +9,8 @@ public class RankCommandArguments {
     public static void LoadRankCommandArguments() {
         String[] args0 = {
                 "add",
-                "remove"
+                "remove",
+                "help"
         };
         rankArguments0 = Arrays.asList(args0);
     }

@@ -47,7 +47,7 @@ public class RanksTabComplete implements TabCompleter {
                 return argumentoptions;
             } else if (args.length == 3) {
                 ArrayList<String> argumentOptions = new ArrayList<>();
-                if (args[0].equalsIgnoreCase("add") || args[0].equalsIgnoreCase("remove")) {
+                if (args[0].equalsIgnoreCase("add") || args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("help")) {
                     for (String instance : Objects.requireNonNull(getRanksList())) {
                         if (instance.startsWith(args[2])) {
                             argumentOptions.add(instance);

@@ -23,6 +23,7 @@ public class Messages {
             GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error.",
             NO_PENDANT_INVITE = chatErrorPrefix + "You don't have any pendant clan invitation.",
             CLANS_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/clan help " + ChatColor.RED + "for more information.",
+            RANK_COMMAND_ERROR = "\n" + ChatColor.RED + "Try using " + ChatColor.YELLOW + "/rank help " + ChatColor.RED + "for more information",
             NO_CHAT_MATCHED_QUERY = chatErrorPrefix + "No chat mode matched query.",
             NOT_IN_A_CLAN = chatErrorPrefix + "You are not in a clan!",
             ALREADY_IN_ADMIN_CHAT = chatErrorPrefix + "Your chat is already set to admin mode.",

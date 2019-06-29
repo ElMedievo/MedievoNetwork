@@ -9,6 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import static org.elmedievo.medievo.Commands.Ranks.Methods.Help.displayRankHelpMenuToPlayer;
 import static org.elmedievo.medievoapi.Ranks.Methods.CheckRanksExistance.rankExists;
 import static org.elmedievo.medievoapi.Ranks.Methods.RankAdd.addRank;
 import static org.elmedievo.medievoapi.Ranks.Methods.RankRemove.removeRank;
@@ -53,7 +54,8 @@ public class rank implements CommandExecutor {
                                 receiver.sendMessage(ChatColor.RED + "You have been demoted from " + ChatColor.AQUA + givenRank + ChatColor.RED + " by: " + ChatColor.RESET + giver);
                                 break;
                             default:
-                                sender.sendMessage(GENERIC_SYNTAX_ERROR);
+                                sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
+                                break;
                         }
                     } else {
                         sender.sendMessage(WARNING_ICON + ChatColor.AQUA + givenRank + ChatColor.RED + " is not a rank.");
@@ -61,11 +63,22 @@ public class rank implements CommandExecutor {
                 } else {
                     sender.sendMessage(WARNING_ICON + ChatColor.DARK_AQUA + givenPlayerName + ChatColor.RED + " is currently Offline or is not a valid player.");
                 }
-            } else if (args.length <= 2) {
-                sender.sendMessage(TOO_FEW_ARGS);
+            } else if (args.length == 1) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    switch (args[0]) {
+                        case "help":
+                            displayRankHelpMenuToPlayer(player);
+                            break;
+                        default:
+                            sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
+                            break;
+                    }
+                }
             } else {
-                sender.sendMessage(TOO_MANY_ARGS);
+                sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
             }
+
         } else {
             sender.sendMessage(NO_PERMISSION);
         }
