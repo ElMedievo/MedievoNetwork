@@ -52,7 +52,7 @@ public class Scoreboard implements Listener {
         scoreboard.setSlot(9, " ");
         scoreboard.setSlot(8, ChatColor.WHITE + "Server: " + ChatColor.WHITE + "[" + ChatColor.GOLD + "US" + ChatColor.WHITE + "]" + ChatColor.RESET);
         scoreboard.setSlot(7, " ");
-        scoreboard.setSlot(6, ChatColor.WHITE + "Nick: " + ChatColor.RESET + player.getDisplayName() + ChatColor.RESET);
+        scoreboard.setSlot(6, ChatColor.WHITE + "Nick: " + player.getDisplayName() + ChatColor.RESET);
         scoreboard.setSlot(5, " ");
         scoreboard.setSlot(4, ChatColor.WHITE + "Clan: ");
         scoreboard.setSlot(3, ChatColor.GREEN + " »" + ChatColor.WHITE + " Name: " + ChatColor.DARK_AQUA + "soon..." + ChatColor.RESET );
