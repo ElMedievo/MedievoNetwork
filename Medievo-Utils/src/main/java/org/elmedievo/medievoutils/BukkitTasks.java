@@ -4,11 +4,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.event.Listener;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-class BukkitTasks {
+class BukkitTasks implements Listener {
     @SuppressWarnings("deprecation")
     static void setGameParams() {
         /* TODO: Make this configurable */

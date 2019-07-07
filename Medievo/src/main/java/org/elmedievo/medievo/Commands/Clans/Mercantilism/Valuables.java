@@ -10,29 +10,28 @@ public class Valuables {
 
     public static float valueInMarket(Material material, Boolean forDeposit) {
         float GOLD_VALUE = (forDeposit) ? 1.0f : -1.0f;
-
         switch (material) {
             case GOLD_INGOT:
                 return GOLD_VALUE;
             case GOLD_BLOCK:
                 return 9 * GOLD_VALUE;
-            case GOLD_SWORD:
+            case GOLDEN_SWORD:
                 return 2 * GOLD_VALUE;
-            case GOLD_SPADE:
+            case GOLDEN_SHOVEL:
                 return GOLD_VALUE;
-            case GOLD_PICKAXE:
+            case GOLDEN_PICKAXE:
                 return 3 * GOLD_VALUE;
-            case GOLD_AXE:
+            case GOLDEN_AXE:
                 return 3 * GOLD_VALUE;
-            case GOLD_HOE:
+            case GOLDEN_HOE:
                 return 2 * GOLD_VALUE;
-            case GOLD_HELMET:
+            case GOLDEN_HELMET:
                 return 5 * GOLD_VALUE;
-            case GOLD_CHESTPLATE:
+            case GOLDEN_CHESTPLATE:
                 return 8 * GOLD_VALUE;
-            case GOLD_LEGGINGS:
+            case GOLDEN_LEGGINGS:
                 return 7 * GOLD_VALUE;
-            case GOLD_BOOTS:
+            case GOLDEN_BOOTS:
                 return 4 * GOLD_VALUE;
             case GOLDEN_APPLE:
                 return 8 * GOLD_VALUE;
@@ -40,7 +39,7 @@ public class Valuables {
                 return GOLD_VALUE / 9;
             case GOLDEN_CARROT:
                 return 8 * (GOLD_VALUE / 9);
-            case GOLD_BARDING:
+            case GOLDEN_HORSE_ARMOR:
                 return 20 * GOLD_VALUE;
         }
         return 0;

@@ -1,7 +1,6 @@
 package org.elmedievo.medievoapi.Database.Destroys;
 
 import org.elmedievo.medievoapi.Database.Connect;
-import org.elmedievo.medievoapi.MedievoAPI;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
