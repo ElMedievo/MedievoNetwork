@@ -26,7 +26,7 @@ public class PlayerKill implements Listener {
         world.playSound(dead_player.getLocation(), Sound.ENTITY_BLAZE_DEATH, 10, 1);
         Entity killer = event.getEntity().getKiller();
 
-        ItemStack skullItem = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+        ItemStack skullItem = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         SkullMeta skullMeta = (SkullMeta) skullItem.getItemMeta();
         skullMeta.setDisplayName(ChatColor.GRAY + "Cabeza Medieval de: " + dead_player.getDisplayName());
         skullMeta.setOwner(dead_player.getName());

@@ -70,9 +70,8 @@ public class GUIInteractEvent implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH)
     public static void onInterfaceItemClick(InventoryClickEvent event) {
-        Inventory eventInventory = event.getInventory();
         Player player = (Player) event.getWhoClicked();
-        if (eventInventory.getName().equals(getMarketData().getString("interface.title"))) {
+        if (player.getOpenInventory().getTitle().equals(getMarketData().getString("interface.title"))) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
                 return;
@@ -87,7 +86,7 @@ public class GUIInteractEvent implements Listener {
                         player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,1,0);
                         player.sendMessage(ChatColor.GREEN + "Purchase Complete " + ChatColor.AQUA + "» " + ChatColor.WHITE + ChatColor.UNDERLINE + ChatColor.ITALIC + CURRENCY_SYMBOL + "-" + price + " Alfonsos" + ChatColor.RESET);
                     } else {
-                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 1,1);
+                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1,1);
                     }
                     player.closeInventory();
                 }

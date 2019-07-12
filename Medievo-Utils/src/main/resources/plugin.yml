@@ -3,6 +3,7 @@ version: ${project.version}
 main: org.elmedievo.medievoutils.MedievoUtils
 authors: [BGMP, BGMM, BGem]
 description: Utilidades complementarias para el plugin medieval
+api-version: 1.14
 commands:
   restart:
     usage: /restart

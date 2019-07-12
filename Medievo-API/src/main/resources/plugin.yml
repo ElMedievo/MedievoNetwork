@@ -5,3 +5,4 @@ loadbefore: [Medievo, Medievo-Utils]
 authors: [BGMP, BGem]
 description: Medieval API.
 website: https://elmedievo.org/
+api-version: 1.14

@@ -60,7 +60,7 @@ public class BlockBreak implements Listener {
         potatoDrops.put(Material.POTATO, potatoDropsList);
         itemDrops.put(potatoDrops, potatoExperience);
 
-        ItemStack[] clayDropsList = {new ItemStack(Material.HARD_CLAY)};
+        ItemStack[] clayDropsList = {new ItemStack(Material.LEGACY_HARD_CLAY)};
         Integer clayExperience = 2;
         clayDrops.put(Material.CLAY, clayDropsList);
         itemDrops.put(clayDrops, clayExperience);
@@ -70,7 +70,7 @@ public class BlockBreak implements Listener {
         cobbleDrops.put(Material.COBBLESTONE, cobbleDropsList);
         itemDrops.put(cobbleDrops, cobbleExperience);
 
-        ItemStack[] cactusDropsList = {new ItemStack(Material.INK_SACK, 1, (byte) 2)};
+        ItemStack[] cactusDropsList = {new ItemStack(Material.LEGACY_INK_SACK, 1, (byte) 2)};
         Integer cactusExperience = 1;
         cactusDrops.put(Material.CACTUS, cactusDropsList);
         itemDrops.put(cactusDrops, cactusExperience);
@@ -87,8 +87,8 @@ public class BlockBreak implements Listener {
 
         ItemStack[] logDropsList = {new ItemStack(Material.COAL, 1, (byte) 1)};
         Integer logExperience = 1;
-        logDrops.put(Material.LOG, logDropsList);
-        logDrops.put(Material.LOG_2, logDropsList);
+        logDrops.put(Material.LEGACY_LOG, logDropsList);
+        logDrops.put(Material.LEGACY_LOG_2, logDropsList);
         itemDrops.put(logDrops, logExperience);
     }
 
