@@ -23,20 +23,19 @@ public class ClanCommandArguments {
         String[] args1 = {
                 "gold_ingot",
                 "gold_block",
-                "gold_sword",
-                "gold_sword",
-                "gold_spade",
-                "gold_pickaxe",
-                "gold_axe",
-                "gold_hoe",
-                "gold_helmet",
-                "gold_chestplate",
-                "gold_leggings",
-                "gold_boots",
+                "golden_sword",
+                "golden_shovel",
+                "golden_pickaxe",
+                "golden_axe",
+                "golden_hoe",
+                "golden_helmet",
+                "golden_chestplate",
+                "golden_leggings",
+                "golden_boots",
                 "golden_apple",
                 "gold_nugget",
                 "golden_carrot",
-                "gold_barding"
+                "gold_horse_armor"
         };
         clanArguments0 = Arrays.asList(args0);
         clanArguments1 = Arrays.asList(args1);
