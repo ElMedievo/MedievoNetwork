@@ -35,7 +35,7 @@ public class ClanCommandArguments {
                 "golden_apple",
                 "gold_nugget",
                 "golden_carrot",
-                "gold_horse_armor"
+                "golden_horse_armor"
         };
         clanArguments0 = Arrays.asList(args0);
         clanArguments1 = Arrays.asList(args1);
