@@ -18,7 +18,7 @@ public class displayMembersList {
         return memberListMessage.toString();
     }
 
-    public static List<String> getClanMembersList(String clan) {
+    static List<String> getClanMembersList(String clan) {
         return getClanMembers(clan);
     }
 }

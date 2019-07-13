@@ -97,7 +97,8 @@ public class BlockBreak implements Listener {
     public static void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
         World world = player.getWorld();
-        if (event.getPlayer().getItemInHand() == null || event.getPlayer().getItemInHand().getType() == Material.AIR) {
+        event.getPlayer().getItemInHand();
+        if (event.getPlayer().getItemInHand().getType() == Material.AIR) {
             return;
         }
         ItemStack itemInPlayerHand = player.getItemInHand();
