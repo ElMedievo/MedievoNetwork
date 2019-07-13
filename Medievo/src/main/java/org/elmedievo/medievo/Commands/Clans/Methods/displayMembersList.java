@@ -8,8 +8,8 @@ import java.util.Objects;
 import static org.elmedievo.medievoapi.Database.Getters.ClanMembersToList.getClanMembers;
 import static org.elmedievo.medievoapi.Util.Methods.Utility.PlayerIsOnline.evalOnlinePlayer;
 
-public class displayMembersList {
-    public static String displayClanMemberList(String clan) {
+class displayMembersList {
+    static String displayClanMemberList(String clan) {
         List<String> members = getClanMembers(clan);
 
         StringBuilder memberListMessage = new StringBuilder();
