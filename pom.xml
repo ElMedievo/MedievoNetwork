@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <global.version>1.0-SNAPSHOT</global.version>
+        <global.version>1.14.3-SNAPSHOT</global.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>org.elmedievo</groupId>
     <artifactId>MedievoNetwork</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.14.3-SNAPSHOT</version>
 
     <modules>
         <module>Medievo-API</module>

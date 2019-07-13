@@ -8,7 +8,7 @@
         <groupId>org.elmedievo</groupId>
         <artifactId>MedievoNetwork</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.14.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>Medievo</artifactId>
@@ -29,10 +29,6 @@
 
     <repositories>
         <repository>
-            <id>local</id>
-            <url>file://${basedir}/dependencies</url>
-        </repository>
-        <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
@@ -46,17 +42,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.elmedievo</groupId>
+            <artifactId>Medievo-API</artifactId>
+            <version>1.14.3-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>16.0.2</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.elmedievo</groupId>
-            <artifactId>Medievo-API</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../Medievo-API/target/Medievo-API-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
