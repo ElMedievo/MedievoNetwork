@@ -29,7 +29,7 @@ public class Head implements CommandExecutor {
                 if (args.length == 1) {
                     Player player = (Player) sender;
                     String skullOwner = args[0];
-                    ItemStack skullItem = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+                    ItemStack skullItem = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
                     SkullMeta skullMeta = (SkullMeta) skullItem.getItemMeta();
                     skullMeta.setOwner(skullOwner);
                     skullItem.setItemMeta(skullMeta);
