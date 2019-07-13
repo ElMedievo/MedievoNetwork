@@ -71,12 +71,14 @@ public class rank implements CommandExecutor {
                             displayRankHelpMenuToPlayer(player);
                             break;
                         default:
-                            sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
+                            sender.sendMessage(TOO_FEW_ARGS + RANK_COMMAND_ERROR);
                             break;
                     }
                 }
+            } else if (args.length <= 2) {
+                sender.sendMessage(TOO_FEW_ARGS + RANK_COMMAND_ERROR);
             } else {
-                sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
+                sender.sendMessage(TOO_MANY_ARGS + RANK_COMMAND_ERROR);
             }
 
         } else {

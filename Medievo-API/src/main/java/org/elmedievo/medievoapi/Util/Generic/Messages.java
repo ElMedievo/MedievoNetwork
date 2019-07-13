@@ -57,6 +57,6 @@ public class Messages {
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
             GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
             RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully.",
-            DEPOSIT_SUCCESS = successPrefix + "Deposit complete.",
+            DEPOSIT_SUCCESS = successPrefix + "Deposit complete",
             SUCCESSFULLY_FOUNDED_CENTRAL_BANK = successPrefix + "Central bank was created successfully.";
 }

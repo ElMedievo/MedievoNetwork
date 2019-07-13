@@ -26,23 +26,23 @@ public class Info {
         if (!Objects.requireNonNull(players_clan).equals("none")) {
             String players_clan_leader = getClanLeaderName(players_clan);
             if (!playerIsOnline(players_clan_leader)) {
-                player.sendMessage(ChatColor.RED + "########## " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                player.sendMessage("\n" + ChatColor.RED + "########## " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
                         + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                         + ChatColor.GRAY + "Your leader: " + ChatColor.DARK_AQUA + players_clan_leader + "\n"
                         + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
                         + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(players_clan).size() + ChatColor.WHITE + ")" + "\n"
                         + displayClanMemberList(players_clan) + "\n"
-                        + ChatColor.RED + "##############################"
+                        + ChatColor.RED + "##############################" + "\n"
                 );
             } else {
                 Player leader = Bukkit.getPlayer(players_clan_leader);
-                player.sendMessage(ChatColor.RED + "######### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                player.sendMessage("\n" + ChatColor.RED + "######### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
                         + ChatColor.GRAY + "Your clan: " + ChatColor.GREEN + players_clan + "\n"
                         + ChatColor.GRAY + "Your leader: " + leader.getDisplayName() + "\n"
                         + ChatColor.GRAY + "Your clan's Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(players_clan) + "\n"
                         + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(players_clan).size() + ChatColor.WHITE + ")" + "\n"
                         + displayClanMemberList(players_clan) + "\n"
-                        + ChatColor.RED + "##############################"
+                        + ChatColor.RED + "##############################" + "\n"
                 );
             }
         } else {
@@ -57,23 +57,23 @@ public class Info {
                 String clan_leader = getClanLeaderName(clan);
                 if (!playerIsOnline(clan_leader)) {
                     UUID clan_leaderUUID = Bukkit.getOfflinePlayer(clan_leader).getUniqueId();
-                    player.sendMessage(ChatColor.RED + "########## " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                    player.sendMessage("\n" + ChatColor.RED + "########## " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
                             + ChatColor.GRAY + "Clan Name: " + ChatColor.GREEN + getPlayerClan(clan_leaderUUID) + "\n"
                             + ChatColor.GRAY + "Clan Leader: " + ChatColor.DARK_AQUA + clan_leader + "\n"
                             + ChatColor.GRAY + "Clan Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(clan) + "\n"
                             + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(clan).size() + ChatColor.WHITE + ")" + "\n"
                             + displayClanMemberList(clan) + "\n"
-                            + ChatColor.RED + "##############################"
+                            + ChatColor.RED + "##############################" + "\n"
                     );
                 } else {
                     Player leader = Bukkit.getPlayer(clan_leader);
-                    player.sendMessage(ChatColor.RED + "######### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
+                    player.sendMessage("\n" + ChatColor.RED + "######### " + ChatColor.AQUA + ChatColor.BOLD + "CLAN INFO" + ChatColor.RESET + ChatColor.RED + " ##########" + "\n"
                             + ChatColor.GRAY + "Clan Name: " + ChatColor.GREEN + clan + "\n"
                             + ChatColor.GRAY + "Clan Leader: " + leader.getDisplayName() + "\n"
                             + ChatColor.GRAY + "Clan Balance: " + ChatColor.GOLD + CURRENCY_SYMBOL + getClanAlfonsos(clan) + "\n"
                             + ChatColor.GRAY + "Members: " + ChatColor.WHITE + "(" + ChatColor.AQUA + getClanMembersList(clan).size() + ChatColor.WHITE + ")"  + "\n"
                             + displayClanMemberList(clan) + "\n"
-                            + ChatColor.RED + "##############################"
+                            + ChatColor.RED + "##############################" + "\n"
                     );
                 }
             } else {

@@ -17,16 +17,16 @@ public class displayClansList {
         List<String> rankedClans = getRankedClansList();
 
         if (Objects.requireNonNull(rankedClans).size() == 0) {
-            player.sendMessage(ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n"
+            player.sendMessage("\n" + ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n"
                     + "- " + ChatColor.GOLD + " THERE ARE NO CLANS :(" + "\n"
-                    + (ChatColor.RED + "###########################")
+                    + (ChatColor.RED + "###########################" + "\n")
             );
             return;
         }
 
         StringBuilder clansListMessage = new StringBuilder();
 
-        clansListMessage.append(ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n");
+        clansListMessage.append("\n" + ChatColor.RED + "##########" + ChatColor.AQUA + ChatColor.BOLD + " CLANS " + ChatColor.RED + "##########" + "\n");
         Objects.requireNonNull(rankedClans).forEach(clan -> {
             if (!clan.equalsIgnoreCase("Medieval Bank")) {
                 clansListMessage
@@ -35,7 +35,7 @@ public class displayClansList {
                         .append(ChatColor.GRAY).append(" Balance: ").append(ChatColor.GOLD).append(CURRENCY_SYMBOL).append(getClanAlfonsos(clan)).append("\n");
             }
         });
-        clansListMessage.append(ChatColor.RED + "###########################");
+        clansListMessage.append(ChatColor.RED + "###########################" + "\n");
 
         String finalClansListMessage = clansListMessage.toString();
         player.sendMessage(finalClansListMessage);
