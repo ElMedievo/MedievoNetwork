@@ -21,6 +21,7 @@ public class PlayerEntry {
         return results.next();
     }
 
+    // Find out what's this about
     public static boolean playerNameExistsInSQLDatabase(String name) {
         try {
             if (lookForPlayerNameInSQLDatabase(name)) {

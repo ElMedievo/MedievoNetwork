@@ -8,7 +8,6 @@ import static org.elmedievo.medievo.Commands.TabComplete.Resources.LoadResources
 import static org.elmedievo.medievo.Configuration.LoadConfig.loadConfig;
 import static org.elmedievo.medievo.EventHandlers.BlockBreak.loadSmelterMaterials;
 import static org.elmedievo.medievo.Queues.CreateQueues.createQueues;
-import static org.elmedievo.medievo.util.CentralBank.generateCentralBank;
 import static org.elmedievo.medievo.util.CommandRegistry.registerCommands;
 import static org.elmedievo.medievo.util.EventRegistry.registerEvents;
 import static org.elmedievo.medievoapi.Util.Methods.Console.consoleAlert;
@@ -33,7 +32,6 @@ public final class Medievo extends JavaPlugin {
         loadConfigurationManager();
         createQueues();
         loadSmelterMaterials();
-        generateCentralBank();
         consoleAlert(ChatColor.GREEN + "-------------------");
     }
 
