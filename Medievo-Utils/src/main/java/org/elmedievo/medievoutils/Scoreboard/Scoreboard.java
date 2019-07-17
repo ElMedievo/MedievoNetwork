@@ -12,6 +12,8 @@ import org.elmedievo.medievoutils.MedievoUtils;
 
 import java.util.Collection;
 
+import static org.elmedievo.medievoapi.Database.Getters.ClanAlfonsos.getClanAlfonsos;
+import static org.elmedievo.medievoapi.Database.Getters.PlayerClan.getPlayerClan;
 import static org.elmedievo.medievoutils.Configuration.ReloadConfig.reloadConfig;
 
 public class Scoreboard implements Listener {
@@ -55,8 +57,8 @@ public class Scoreboard implements Listener {
         scoreboard.setSlot(6, ChatColor.WHITE + "Nick: " + player.getDisplayName() + ChatColor.RESET);
         scoreboard.setSlot(5, " ");
         scoreboard.setSlot(4, ChatColor.WHITE + "Clan: ");
-        scoreboard.setSlot(3, ChatColor.GREEN + " »" + ChatColor.WHITE + " Name: " + ChatColor.DARK_AQUA + "soon..." + ChatColor.RESET );
-        scoreboard.setSlot(2, ChatColor.GREEN + " »" + ChatColor.WHITE + " Gold: " + ChatColor.DARK_AQUA + "soon..." + ChatColor.RESET);
+        scoreboard.setSlot(3, ChatColor.GREEN + " »" + ChatColor.WHITE + " Name: " + ChatColor.AQUA + getPlayerClan(player.getUniqueId()));
+        scoreboard.setSlot(2, ChatColor.GREEN + " »" + ChatColor.WHITE + " Alfonsos: " + ChatColor.GOLD + "£" +getClanAlfonsos(getPlayerClan(player.getUniqueId())));
         scoreboard.setSlot(1, " ");
         scoreboard.setSlot(0, web);
     }
