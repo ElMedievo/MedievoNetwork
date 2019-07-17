@@ -14,8 +14,7 @@ public class ClanAlfonsos {
     public static float getClanAlfonsos(String clan) {
         try {
             return lookUpClanAlfonsos(clan);
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+        } catch (SQLException ignore) {
         }
         return 0;
     }
