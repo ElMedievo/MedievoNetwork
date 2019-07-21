@@ -24,7 +24,7 @@ public final class Medievo extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        consoleAlert(ChatColor.GREEN + "-----" + " Medievo " + "-----");
+        consoleAlert(ChatColor.AQUA + "---------------------->" + " Medievo " + "<----------------------");
         loadConfig();
         registerCommands();
         loadTabCompleteArguments();
@@ -32,11 +32,13 @@ public final class Medievo extends JavaPlugin {
         loadConfigurationManager();
         createQueues();
         loadSmelterMaterials();
-        consoleAlert(ChatColor.GREEN + "-------------------");
+        consoleAlert(ChatColor.AQUA + "-------------------------------------------------------");
     }
 
     @Override
     public void onDisable() {
-        consoleLog("The Medieval plugin has been disabled");
+        consoleAlert(ChatColor.AQUA + "---------------------->" + " Medievo " + "<----------------------");
+        consoleAlert(ChatColor.RED + "Medievo has been successfully disabled.");
+        consoleAlert(ChatColor.AQUA + "-------------------------------------------------------");
     }
 }

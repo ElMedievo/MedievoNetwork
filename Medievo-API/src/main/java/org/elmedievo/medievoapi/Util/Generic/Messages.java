@@ -46,12 +46,12 @@ public class Messages {
     /* Success Messages */
     public static String
             LOADED_CONFIG = successPrefix + "Plugin configuration was successfully loaded.",
-            RANKS_FILE_FOUND = successPrefix + "Successfully loaded ranks.xml file.",
+            RANKS_FILE_FOUND = successPrefix + "Successfully loaded ranks.xml.",
             RANKS_FILE_NOT_FOUND = successPrefix + "ranks.xml file not found. Creating one...",
-            RANKS_DATA_FILE_FOUND = successPrefix + "Successfully loaded the ranks.yml file.",
-            RANKS_DATA_FILE_NOT_FOUND = successPrefix + "ranks.yml file not found. Creating one...",
+            RANKS_DATA_FILE_FOUND = successPrefix + "Successfully loaded ranks.yml.",
+            RANKS_DATA_FILE_NOT_FOUND = successPrefix + "ranks.yml was not found. Creating...",
             MARKET_DATA_FILE_FOUND = successPrefix + "Successfully loaded the market.yml file",
-            MARKET_DATA_FILE_NOT_FOUND = successPrefix + "market.yml file not found. Creating one...",
+            MARKET_DATA_FILE_NOT_FOUND = successPrefix + "market.yml was not found. Creating...",
             SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully.",
             ADMIN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Admin",
             CLAN_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Clan",
