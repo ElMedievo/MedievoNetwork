@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import static org.elmedievo.medievoapi.Database.Entries.ClanEntry.clanExistsInSQLDatabase;
 import static org.elmedievo.medievoapi.Database.Entries.ClanEntry.createClanInSQLDatabase;
+import static org.elmedievo.medievoapi.Database.Getters.ClanLeader.getClanLeaderUUID;
 import static org.elmedievo.medievoapi.Util.Generic.Messages.SUCCESSFULLY_FOUNDED_CENTRAL_BANK;
 import static org.elmedievo.medievoapi.Util.Methods.Console.consoleAlert;
 
@@ -28,6 +29,8 @@ public class CentralBank {
             String CENTRAL_BANK_LEADER = "-CentralBank";
             createClanInSQLDatabase(CENTRAL_BANK_NAME, CENTRAL_BANK_UUID, CENTRAL_BANK_LEADER);
             consoleAlert(SUCCESSFULLY_FOUNDED_CENTRAL_BANK);
+        } else {
+            MedievoAPI.instance.getConfig().set("central_bank_uuid", getClanLeaderUUID(CENTRAL_BANK_NAME));
         }
     }
 }
