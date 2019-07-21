@@ -42,6 +42,10 @@ commands:
     usage: /reloadscoreboard
     description: Reloads the scorebaord.
     aliases: [rlscoreboard, rlscore, rlsb]
+  lockweather:
+    usage: /lockweather
+    description: Locks the weather.
+    aliases: [lweather, lw]
 permissions:
   medievo.utils.gamemode:
     description: Permission for the gamemode command.

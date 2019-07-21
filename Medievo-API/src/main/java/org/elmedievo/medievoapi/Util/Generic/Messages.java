@@ -58,5 +58,7 @@ public class Messages {
             GLOBAL_CHAT_SET = successPrefix + "Chat mode set to: " + ChatColor.RESET + ChatColor.ITALIC + "Global",
             RELOADED_CONFIG = successPrefix + "Configuration reloaded successfully.",
             DEPOSIT_SUCCESS = successPrefix + "Deposit complete",
-            SUCCESSFULLY_FOUNDED_CENTRAL_BANK = successPrefix + "Central bank was created successfully.";
+            SUCCESSFULLY_FOUNDED_CENTRAL_BANK = successPrefix + "Central bank was created successfully.",
+            TIME_LOCK_ON = successPrefix + "Time lock has been enabled.",
+            TIME_LOCK_OFF = ChatColor.RED + "Time lock has been disabled.";
 }

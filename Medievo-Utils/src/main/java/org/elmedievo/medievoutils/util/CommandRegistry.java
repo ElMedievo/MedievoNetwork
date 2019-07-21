@@ -10,6 +10,7 @@ import static org.elmedievo.medievoutils.Commands.Restart.Cancel.registerCancelC
 import static org.elmedievo.medievoutils.Commands.Restart.Restart.registerRestartCommand;
 import static org.elmedievo.medievoutils.Commands.Scoreboard.registerScoreboardCommand;
 import static org.elmedievo.medievoutils.Commands.Teleport.teleport.registerTeleportCommand;
+import static org.elmedievo.medievoutils.Commands.WeatherChangeCommand.registerWeatherChangeCommand;
 
 public class CommandRegistry {
     public static void registerCommands() {
@@ -23,5 +24,6 @@ public class CommandRegistry {
         registerRestartCommand();
         registerCancelCommand();
         registerScoreboardCommand();
+        registerWeatherChangeCommand();
     }
 }

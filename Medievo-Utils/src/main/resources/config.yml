@@ -2,6 +2,7 @@ General:
   enable-welcoming: false
   welcome-msg: ""
   restart: 30
+  weather-lock: false
 Scoreboard:
   title: "&e&lEl Medievo"
   server-web: "&bwww.elmedievo.org"
