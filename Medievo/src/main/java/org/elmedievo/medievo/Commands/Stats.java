@@ -38,36 +38,32 @@ public class Stats implements CommandExecutor {
             return;
         }
 
-        try {
-            if (playerExistsInDatabase(statsPlayerNameUUID)) {
-                DecimalFormat decimalFormat = new DecimalFormat("##.##");
-                decimalFormat.setRoundingMode(RoundingMode.UP);
+        if (playerExistsInDatabase(statsPlayerNameUUID)) {
+            DecimalFormat decimalFormat = new DecimalFormat("##.##");
+            decimalFormat.setRoundingMode(RoundingMode.UP);
 
-                int kills = getPlayerKills(statsPlayerNameUUID);
-                int deaths = getPlayerDeaths(statsPlayerNameUUID);
-                int killed = getPlayerKilled(statsPlayerNameUUID);
-                float kd = (float) kills / deaths;
-                float kk = (float) kills / killed;
+            int kills = getPlayerKills(statsPlayerNameUUID);
+            int deaths = getPlayerDeaths(statsPlayerNameUUID);
+            int killed = getPlayerKilled(statsPlayerNameUUID);
+            float kd = (float) kills / deaths;
+            float kk = (float) kills / killed;
 
-                if (Float.isNaN(kd)) {
-                    kd = 0;
-                }
-                if (Float.isNaN(kk)) {
-                    kk = 0;
-                }
-
-                playerReceiver.sendMessage(ChatColor.RED + "----- " + playerDisplayedName + ChatColor.AQUA  + ChatColor.AQUA + "'s stats" + ChatColor.RED  + " -----" + "\n"
-                        + ChatColor.AQUA + "Kills: " + ChatColor.GREEN + kills + "\n"
-                        + ChatColor.AQUA + "Deaths: " + ChatColor.DARK_RED + deaths + "\n"
-                        + ChatColor.AQUA + "K/D: " + ChatColor.DARK_AQUA + decimalFormat.format(kd) + "\n"
-                        + ChatColor.AQUA + "K/K: " + ChatColor.DARK_AQUA + decimalFormat.format(kk) + "\n"
-                        + ChatColor.RED + "-----------------------"
-                );
-            } else {
-                playerReceiver.sendMessage(PLAYER_NOT_FOUND);
+            if (Float.isNaN(kd)) {
+                kd = 0;
             }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+            if (Float.isNaN(kk)) {
+                kk = 0;
+            }
+
+            playerReceiver.sendMessage(ChatColor.RED + "----- " + playerDisplayedName + ChatColor.AQUA  + ChatColor.AQUA + "'s stats" + ChatColor.RED  + " -----" + "\n"
+                    + ChatColor.AQUA + "Kills: " + ChatColor.GREEN + kills + "\n"
+                    + ChatColor.AQUA + "Deaths: " + ChatColor.DARK_RED + deaths + "\n"
+                    + ChatColor.AQUA + "K/D: " + ChatColor.DARK_AQUA + decimalFormat.format(kd) + "\n"
+                    + ChatColor.AQUA + "K/K: " + ChatColor.DARK_AQUA + decimalFormat.format(kk) + "\n"
+                    + ChatColor.RED + "-----------------------"
+            );
+        } else {
+            playerReceiver.sendMessage(PLAYER_NOT_FOUND);
         }
     }
 

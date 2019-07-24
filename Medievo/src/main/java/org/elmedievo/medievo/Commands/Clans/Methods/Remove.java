@@ -43,30 +43,22 @@ public class Remove {
     }
 
     private static boolean inSameClan(Player player, Player player2) {
-        try {
-            if (playerExistsInDatabase(player.getUniqueId()) && playerExistsInDatabase(player2.getUniqueId())) {
-                String playerClan = getPlayerClan(player.getUniqueId());
-                String player2Clan = getPlayerClan(player2.getUniqueId());
+        if (playerExistsInDatabase(player.getUniqueId()) && playerExistsInDatabase(player2.getUniqueId())) {
+            String playerClan = getPlayerClan(player.getUniqueId());
+            String player2Clan = getPlayerClan(player2.getUniqueId());
 
-                return Objects.requireNonNull(playerClan).equals(player2Clan);
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+            return Objects.requireNonNull(playerClan).equals(player2Clan);
         }
         return false;
     }
 
     private static boolean isClanLeader(Player player) {
-        try {
-            if (playerExistsInDatabase(player.getUniqueId())) {
-                String player_clan = getPlayerClan(player.getUniqueId());
-                String player_clan_leader = getClanLeaderName(player_clan);
-                String player_name = player.getName();
+        if (playerExistsInDatabase(player.getUniqueId())) {
+            String player_clan = getPlayerClan(player.getUniqueId());
+            String player_clan_leader = getClanLeaderName(player_clan);
+            String player_name = player.getName();
 
-                return Objects.requireNonNull(player_clan_leader).equals(player_name);
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+            return Objects.requireNonNull(player_clan_leader).equals(player_name);
         }
         return false;
     }

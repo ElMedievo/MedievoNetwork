@@ -14,11 +14,17 @@ import static org.elmedievo.medievoapi.Ranks.CreateRanksYML.getRanksYML;
 import static org.elmedievo.medievoapi.Ranks.CreateRanksYML.saveRanksYML;
 
 public class PlayerEntry {
-    public static boolean playerExistsInDatabase(UUID uuid) throws SQLException {
-        PreparedStatement statement = Connect.getConnection().prepareStatement("SELECT * FROM " + sql.player_data_table + " WHERE uuid=?");
-        statement.setString(1, uuid.toString());
-        ResultSet results = statement.executeQuery();
-        return results.next();
+    public static boolean playerExistsInDatabase(UUID uuid) {
+        PreparedStatement statement;
+        try {
+            statement = Connect.getConnection().prepareStatement("SELECT * FROM " + sql.player_data_table + " WHERE uuid=?");
+            statement.setString(1, uuid.toString());
+            ResultSet results = statement.executeQuery();
+            return results.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     // Find out what's this about
