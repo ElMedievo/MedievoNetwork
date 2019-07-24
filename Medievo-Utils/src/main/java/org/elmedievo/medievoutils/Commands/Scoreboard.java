@@ -3,6 +3,7 @@ package org.elmedievo.medievoutils.Commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.elmedievo.medievoutils.MedievoUtils;
 
 import static org.elmedievo.medievoutils.Scoreboard.Scoreboard.*;
@@ -20,7 +21,8 @@ public class Scoreboard implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("reloadscoreboard") && sender.hasPermission("medievo.utils.scoreboard")) {
             if (args.length == 0) {
-                touchScoreboard();
+                Player player = (Player) sender;
+                updateScoreboard(player);
                 sender.sendMessage(RELOADED_SCOREBOARD);
             } else {
                 sender.sendMessage(TOO_MANY_ARGS);

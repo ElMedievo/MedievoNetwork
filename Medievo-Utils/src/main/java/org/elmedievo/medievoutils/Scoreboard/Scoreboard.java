@@ -8,9 +8,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.elmedievo.medievoutils.MedievoUtils;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import static org.elmedievo.medievoapi.Database.Getters.ClanAlfonsos.getClanAlfonsos;
 import static org.elmedievo.medievoapi.Database.Getters.PlayerClan.getPlayerClan;
@@ -35,53 +36,42 @@ public class Scoreboard implements Listener {
         coloredWeb = ChatColor.translateAlternateColorCodes('&', rawScoreboardWeb);
     }
 
-    private static void createScoreboard(Player player) {
+    private void createScoreboard(Player player) {
         ScoreboardAPI scoreboard = ScoreboardAPI.createScore(player);
         scoreboard.setTitle(coloredTitle);
-        scoreboard.setSlot(3, " ");
-        scoreboard.setSlot(2, " ");
-        scoreboard.setSlot(1, " ");
-        scoreboard.setSlot(0, coloredWeb);
         reloadConfig();
-        updateScoreboard(player, coloredTitle, coloredWeb);
     }
 
-    private static void updateScoreboard(Player player, String title, String web) {
-        ScoreboardAPI scoreboard = ScoreboardAPI.createScore(player);
-        coloredTitle = title;
-        coloredWeb = web;
-        scoreboard.setTitle(title);
-        scoreboard.setSlot(9, " ");
-        scoreboard.setSlot(8, ChatColor.WHITE + "Server: " + ChatColor.WHITE + "[" + ChatColor.GOLD + "US" + ChatColor.WHITE + "]" + ChatColor.RESET);
-        scoreboard.setSlot(7, " ");
-        scoreboard.setSlot(6, ChatColor.WHITE + "Nick: " + player.getDisplayName() + ChatColor.RESET);
-        scoreboard.setSlot(5, " ");
-        scoreboard.setSlot(4, ChatColor.WHITE + "Clan: ");
-        scoreboard.setSlot(3, ChatColor.GREEN + " »" + ChatColor.WHITE + " Name: " + ChatColor.AQUA + getPlayerClan(player.getUniqueId()));
-        scoreboard.setSlot(2, ChatColor.GREEN + " »" + ChatColor.WHITE + " Alfonsos: " + ChatColor.GOLD + "£" +getClanAlfonsos(getPlayerClan(player.getUniqueId())));
-        scoreboard.setSlot(1, " ");
-        scoreboard.setSlot(0, web);
-    }
-
-    private static void updateScoreboardAll(String title, String web) {
-        Collection<? extends Player> onlinePlayers = Bukkit.getServer().getOnlinePlayers();
-        onlinePlayers.forEach(player -> updateScoreboard(player, title, web));
-    }
-
-    public static void touchScoreboard() {
+    public static void updateScoreboard(Player player) {
         reloadConfig();
-        rawScoreboardTitle = MedievoUtils.instance.getConfig().getString("Scoreboard.title");
-        rawScoreboardWeb = MedievoUtils.instance.getConfig().getString("Scoreboard.server-web");
-        org.elmedievo.medievoutils.Scoreboard.Scoreboard.coloredTitle = ChatColor.translateAlternateColorCodes('&', rawScoreboardTitle);
-        org.elmedievo.medievoutils.Scoreboard.Scoreboard.coloredWeb = ChatColor.translateAlternateColorCodes('&', rawScoreboardWeb);
-        updateScoreboardAll(org.elmedievo.medievoutils.Scoreboard.Scoreboard.coloredTitle, org.elmedievo.medievoutils.Scoreboard.Scoreboard.coloredWeb);
+        if (ScoreboardAPI.hasScore(player)) {
+            ScoreboardAPI Score = ScoreboardAPI.getByPlayer(player);
+            ArrayList<String> ScoreList = new ArrayList<>();
+            ScoreList.add(" ");
+            ScoreList.add(ChatColor.WHITE + "Server: " + ChatColor.WHITE + "[" + ChatColor.GOLD + "US" + ChatColor.WHITE + "]" + ChatColor.RESET);
+            ScoreList.add(" ");
+            ScoreList.add(ChatColor.WHITE + "Nick: " + player.getDisplayName() + ChatColor.RESET);
+            ScoreList.add(" ");
+            ScoreList.add(ChatColor.WHITE + "Clan: ");
+            ScoreList.add(ChatColor.GREEN + " »" + ChatColor.WHITE + " Name: " + ChatColor.AQUA + getPlayerClan(player.getUniqueId()));
+            ScoreList.add(ChatColor.GREEN + " »" + ChatColor.WHITE + " Alfonsos: " + ChatColor.GOLD + "£" +getClanAlfonsos(getPlayerClan(player.getUniqueId())));
+            ScoreList.add(" ");
+            ScoreList.add(org.elmedievo.medievoutils.Scoreboard.Scoreboard.coloredWeb);
+            Score.setSlotsFromList(ScoreList);
+        }
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public static void onPlayerJoin(PlayerJoinEvent event) {
+    public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         createScoreboard(player);
-        touchScoreboard();
+        new BukkitRunnable() {
+            public void run() {
+                for(Player player : Bukkit.getOnlinePlayers()) {
+                    updateScoreboard(player);
+                }
+            }
+        }.runTaskTimer(plugin, 0, 10);
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
