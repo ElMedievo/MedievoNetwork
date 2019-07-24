@@ -3,6 +3,7 @@ package org.elmedievo.medievoutils;
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.FurnaceRecipe;
@@ -15,25 +16,36 @@ class BukkitTasks implements Listener {
         /* TODO: Make this configurable */
         Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.LEATHER), Material.ROTTEN_FLESH));
         /* Medieval gold foundry mechanics */
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 5), Material.GOLDEN_HELMET));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 8), Material.GOLDEN_CHESTPLATE));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 7), Material.GOLDEN_LEGGINGS));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 5), Material.GOLDEN_BOOTS));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 2), Material.GOLDEN_SWORD));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 3), Material.GOLDEN_PICKAXE));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT), Material.GOLDEN_SHOVEL));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 2), Material.GOLDEN_HOE));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_INGOT, 20), Material.GOLDEN_HORSE_ARMOR));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLDEN_APPLE, 8), Material.GOLDEN_APPLE));
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.GOLD_NUGGET, 8), Material.GOLDEN_CARROT));
+        addFurnaceRecipe(getGold(5), Material.GOLDEN_HELMET);
+        addFurnaceRecipe(getGold(8), Material.GOLDEN_CHESTPLATE);
+        addFurnaceRecipe(getGold(7), Material.GOLDEN_LEGGINGS);
+        addFurnaceRecipe(getGold(5), Material.GOLDEN_BOOTS);
+        addFurnaceRecipe(getGold(2), Material.GOLDEN_SWORD);
+        addFurnaceRecipe(getGold(3), Material.GOLDEN_PICKAXE);
+        addFurnaceRecipe(getGold(1), Material.GOLDEN_SHOVEL);
+        addFurnaceRecipe(getGold(2), Material.GOLDEN_HOE);
+        addFurnaceRecipe(getGold(20), Material.GOLDEN_HORSE_ARMOR);
+        addFurnaceRecipe(getGold(8), Material.GOLDEN_APPLE);
+        addFurnaceRecipe(getGold(8), Material.GOLDEN_CARROT);
         /* Medieval gold foundry mechanics */
+
         new BukkitRunnable() {
             @Override
             public void run() {
-                World world = Bukkit.getWorld("world");
+                World world = Bukkit.getWorlds().get(0); // World 0 returns overworld much better instead of using getWorld('world')
                 world.setDifficulty(Difficulty.HARD);
                 this.cancel();
             }
         }.runTaskTimer(MedievoUtils.instance, 0L, 0L);
     }
+
+    private static void addFurnaceRecipe(ItemStack result, Material source){
+        Bukkit.getServer().addRecipe(new FurnaceRecipe(new NamespacedKey(MedievoUtils.instance, "key_" + result.toString()), result, source, 0.3f, 200));
+    }
+
+    private static ItemStack getGold(int amount){
+        return new ItemStack(Material.GOLD_INGOT, amount);
+    }
+
+
 }
