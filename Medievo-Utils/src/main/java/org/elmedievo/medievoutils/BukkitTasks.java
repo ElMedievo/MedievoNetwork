@@ -16,17 +16,17 @@ class BukkitTasks implements Listener {
         /* TODO: Make this configurable */
         Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.LEATHER), Material.ROTTEN_FLESH));
         /* Medieval gold foundry mechanics */
-        addFurnaceRecipe(getGold(5), Material.GOLDEN_HELMET);
-        addFurnaceRecipe(getGold(8), Material.GOLDEN_CHESTPLATE);
-        addFurnaceRecipe(getGold(7), Material.GOLDEN_LEGGINGS);
-        addFurnaceRecipe(getGold(5), Material.GOLDEN_BOOTS);
-        addFurnaceRecipe(getGold(2), Material.GOLDEN_SWORD);
-        addFurnaceRecipe(getGold(3), Material.GOLDEN_PICKAXE);
-        addFurnaceRecipe(getGold(1), Material.GOLDEN_SHOVEL);
-        addFurnaceRecipe(getGold(2), Material.GOLDEN_HOE);
-        addFurnaceRecipe(getGold(20), Material.GOLDEN_HORSE_ARMOR);
-        addFurnaceRecipe(getGold(8), Material.GOLDEN_APPLE);
-        addFurnaceRecipe(getGold(8), Material.GOLDEN_CARROT);
+        addFurnaceRecipe("furnace_helmet", getGold(5), Material.GOLDEN_HELMET);
+        addFurnaceRecipe( "furnace_chestplate" , getGold(8), Material.GOLDEN_CHESTPLATE);
+        addFurnaceRecipe( "furnace_leggings", getGold(7), Material.GOLDEN_LEGGINGS);
+        addFurnaceRecipe( "furnace_boots", getGold(5), Material.GOLDEN_BOOTS);
+        addFurnaceRecipe( "furnace_sword", getGold(2), Material.GOLDEN_SWORD);
+        addFurnaceRecipe( "furnace_pickaxe", getGold(3), Material.GOLDEN_PICKAXE);
+        addFurnaceRecipe("furnace_shovel", getGold(1), Material.GOLDEN_SHOVEL);
+        addFurnaceRecipe("furnace_hoe", getGold(2), Material.GOLDEN_HOE);
+        addFurnaceRecipe("furnace_horse_armor", getGold(20), Material.GOLDEN_HORSE_ARMOR);
+        addFurnaceRecipe("furnace_apple", getGold(8), Material.GOLDEN_APPLE);
+        addFurnaceRecipe("furnace_carrot", getGold(8), Material.GOLDEN_CARROT);
         /* Medieval gold foundry mechanics */
 
         new BukkitRunnable() {
@@ -39,7 +39,7 @@ class BukkitTasks implements Listener {
         }.runTaskTimer(MedievoUtils.instance, 0L, 0L);
     }
 
-    private static void addFurnaceRecipe(ItemStack result, Material source){
+    private static void addFurnaceRecipe(String key, ItemStack result, Material source){
         Bukkit.getServer().addRecipe(new FurnaceRecipe(new NamespacedKey(MedievoUtils.instance, "key_" + result.toString()), result, source, 0.3f, 200));
     }
 
