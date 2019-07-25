@@ -17,11 +17,11 @@ class BukkitTasks implements Listener {
         Bukkit.getServer().addRecipe(new FurnaceRecipe(new ItemStack(Material.LEATHER), Material.ROTTEN_FLESH));
         /* Medieval gold foundry mechanics */
         addFurnaceRecipe("furnace_helmet", getGold(5), Material.GOLDEN_HELMET);
-        addFurnaceRecipe( "furnace_chestplate" , getGold(8), Material.GOLDEN_CHESTPLATE);
-        addFurnaceRecipe( "furnace_leggings", getGold(7), Material.GOLDEN_LEGGINGS);
-        addFurnaceRecipe( "furnace_boots", getGold(5), Material.GOLDEN_BOOTS);
-        addFurnaceRecipe( "furnace_sword", getGold(2), Material.GOLDEN_SWORD);
-        addFurnaceRecipe( "furnace_pickaxe", getGold(3), Material.GOLDEN_PICKAXE);
+        addFurnaceRecipe("furnace_chestplate" , getGold(8), Material.GOLDEN_CHESTPLATE);
+        addFurnaceRecipe("furnace_leggings", getGold(7), Material.GOLDEN_LEGGINGS);
+        addFurnaceRecipe("furnace_boots", getGold(5), Material.GOLDEN_BOOTS);
+        addFurnaceRecipe("furnace_sword", getGold(2), Material.GOLDEN_SWORD);
+        addFurnaceRecipe("furnace_pickaxe", getGold(3), Material.GOLDEN_PICKAXE);
         addFurnaceRecipe("furnace_shovel", getGold(1), Material.GOLDEN_SHOVEL);
         addFurnaceRecipe("furnace_hoe", getGold(2), Material.GOLDEN_HOE);
         addFurnaceRecipe("furnace_horse_armor", getGold(20), Material.GOLDEN_HORSE_ARMOR);
@@ -39,13 +39,11 @@ class BukkitTasks implements Listener {
         }.runTaskTimer(MedievoUtils.instance, 0L, 0L);
     }
 
-    private static void addFurnaceRecipe(String key, ItemStack result, Material source){
-        Bukkit.getServer().addRecipe(new FurnaceRecipe(new NamespacedKey(MedievoUtils.instance, "key_" + result.toString()), result, source, 0.3f, 200));
+    private static void addFurnaceRecipe(String key, ItemStack result, Material source) {
+        Bukkit.getServer().addRecipe(new FurnaceRecipe(new NamespacedKey(MedievoUtils.instance, key), result, source, 0.3f, 200));
     }
 
     private static ItemStack getGold(int amount){
         return new ItemStack(Material.GOLD_INGOT, amount);
     }
-
-
 }
