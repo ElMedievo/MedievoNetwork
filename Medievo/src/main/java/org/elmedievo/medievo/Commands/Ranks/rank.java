@@ -11,11 +11,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.elmedievo.medievoapi.Ranks.CreateRanksYML;
 
+import java.util.Objects;
 import java.util.UUID;
 
 import static org.elmedievo.medievo.Commands.Ranks.Methods.Help.displayRankHelpMenuToPlayer;
 import static org.elmedievo.medievoapi.Ranks.Methods.CheckRanksExistance.rankExists;
 import static org.elmedievo.medievoapi.Ranks.Methods.RankAdd.addRank;
+import static org.elmedievo.medievoapi.Ranks.Methods.RankAdd.attemptOfflineRankAdd;
+import static org.elmedievo.medievoapi.Ranks.Methods.RankRemove.attemptOfflineRankRemoval;
 import static org.elmedievo.medievoapi.Ranks.Methods.RankRemove.removeRank;
 import static org.elmedievo.medievoapi.Util.Generic.Messages.*;
 import static org.elmedievo.medievoapi.Util.Generic.Prefixes.CONSOLE_PREFIX;
@@ -50,12 +53,22 @@ public class rank implements CommandExecutor {
                             case "add":
                                 addRank(givenUuid, givenRank);
                                 sender.sendMessage(ChatColor.GREEN + "Rank successfully added");
-                                if (Bukkit.getPlayer(givenUuid).isOnline()) Bukkit.getPlayer(givenUuid).sendMessage(ChatColor.GREEN + "You have been granted the " + ChatColor.AQUA + givenRank + ChatColor.GREEN + " rank by: " + ChatColor.RESET + giver);
+                                if (Objects.requireNonNull(Bukkit.getPlayer(givenUuid)).isOnline()) {
+                                    Objects.requireNonNull(Bukkit.getPlayer(givenUuid)).sendMessage(ChatColor.GREEN + "You have been granted the " + ChatColor.AQUA + givenRank + ChatColor.GREEN + " rank by: " + ChatColor.RESET + giver);
+                                } else {
+                                    attemptOfflineRankAdd(givenPlayerName, givenRank);
+                                    sender.sendMessage("offline give attempted");
+                                }
                                 break;
                             case "remove":
                                 removeRank(givenUuid, givenRank);
                                 sender.sendMessage(ChatColor.RED + "Rank successfully removed");
-                                if (Bukkit.getPlayer(givenUuid).isOnline()) Bukkit.getPlayer(givenUuid).sendMessage(ChatColor.RED + "You have been demoted from " + ChatColor.AQUA + givenRank + ChatColor.RED + " by: " + ChatColor.RESET + giver);
+                                if (Objects.requireNonNull(Bukkit.getPlayer(givenUuid)).isOnline()) {
+                                    Objects.requireNonNull(Bukkit.getPlayer(givenUuid)).sendMessage(ChatColor.RED + "You have been demoted from " + ChatColor.AQUA + givenRank + ChatColor.RED + " by: " + ChatColor.RESET + giver);
+                                } else {
+                                    attemptOfflineRankRemoval(givenPlayerName, givenRank);
+                                    sender.sendMessage("offline remove attempted");
+                                }
                                 break;
                             default:
                                 sender.sendMessage(GENERIC_SYNTAX_ERROR + RANK_COMMAND_ERROR);
@@ -65,7 +78,7 @@ public class rank implements CommandExecutor {
                         sender.sendMessage(WARNING_ICON + ChatColor.AQUA + givenRank + ChatColor.RED + " is not a rank.");
                     }
                 } else {
-                    sender.sendMessage(WARNING_ICON + ChatColor.DARK_AQUA + givenPlayerName + ChatColor.RED + " is currently Offline or is not a valid player.");
+                    sender.sendMessage(WARNING_ICON + ChatColor.DARK_AQUA + givenPlayerName + ChatColor.RED + " is not a valid player. Try using @Username in order to add ranks to offline players.");
                 }
             } else if (args.length == 1) {
                 if (sender instanceof Player) {
