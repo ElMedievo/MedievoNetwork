@@ -119,5 +119,4 @@ public class rank implements CommandExecutor {
         }
         return null;
     }
-
 }
