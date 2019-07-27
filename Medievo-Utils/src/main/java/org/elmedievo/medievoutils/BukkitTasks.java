@@ -11,6 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 class BukkitTasks implements Listener {
+    private static int autoRestartMinutes = MedievoUtils.instance.getConfig().getInt("General.auto-restart");
+
     @SuppressWarnings("deprecation")
     static void setGameParams() {
         /* TODO: Make this configurable */
@@ -37,6 +39,19 @@ class BukkitTasks implements Listener {
                 this.cancel();
             }
         }.runTaskTimer(MedievoUtils.instance, 0L, 0L);
+    }
+
+    static void scheduleAutoRestart() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "restart 60");
+            }
+        }.runTaskTimer(MedievoUtils.instance, ticksFromMinutes(autoRestartMinutes), 0L);
+    }
+
+    private static long ticksFromMinutes(int minutes) {
+        return (long) ((minutes * 60) * 20);
     }
 
     private static void addFurnaceRecipe(String key, ItemStack result, Material source) {

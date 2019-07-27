@@ -2,6 +2,7 @@ General:
   enable-welcoming: false
   welcome-msg: ""
   restart: 30
+  auto-restart: 240
   weather-lock: false
 Scoreboard:
   title: "&e&lEl Medievo"

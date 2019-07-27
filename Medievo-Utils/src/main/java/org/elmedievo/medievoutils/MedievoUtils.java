@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import static org.elmedievo.medievoapi.Util.Methods.Console.consoleAlert;
+import static org.elmedievo.medievoutils.BukkitTasks.scheduleAutoRestart;
 import static org.elmedievo.medievoutils.BukkitTasks.setGameParams;
 import static org.elmedievo.medievoutils.Commands.Message.MessageReplyQueue.loadMessageReplyQueue;
 import static org.elmedievo.medievoutils.Configuration.LoadConfig.loadConfig;
@@ -25,6 +26,7 @@ public final class MedievoUtils extends JavaPlugin {
         setGameParams();
         loadScoreboardParams();
         loadConfig();
+        scheduleAutoRestart();
         consoleAlert(ChatColor.AQUA + "-------------------------------------------------------------");
     }
 
