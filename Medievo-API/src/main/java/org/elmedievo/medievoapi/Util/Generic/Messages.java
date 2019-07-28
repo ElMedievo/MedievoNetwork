@@ -41,7 +41,8 @@ public class Messages {
             INVALID_MATERIAL_TYPE = chatErrorPrefix + "Invalid material.",
             ONLY_LEADER_PURCHASABLE = chatErrorPrefix + "Only the clan leader may purchase from the central market.",
             NOT_ENOUGH_ALFONSOS = chatErrorPrefix + "You do not have enough alfonsos to purchase this item.",
-            NOT_ENOUGH_GOLD_INGOTS = chatErrorPrefix + "The central bank only accepts gold ingots as payment method. You do not have enough ingots in your bank.";
+            NOT_ENOUGH_GOLD_INGOTS = chatErrorPrefix + "The central bank only accepts gold ingots as payment method. You do not have enough ingots in your bank.",
+            NUMBER_STRING_EXCEPTION =  chatErrorPrefix + "Number expected, received string instead";
 
     /* Success Messages */
     public static String

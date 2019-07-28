@@ -1,5 +1,6 @@
 package org.elmedievo.medievoutils.util;
 
+import static org.elmedievo.medievoutils.Commands.AutoRestart.registerAutoRestartCommand;
 import static org.elmedievo.medievoutils.Commands.Broadcast.registerBroadcastCommand;
 import static org.elmedievo.medievoutils.Commands.Fly.registerFlyCommand;
 import static org.elmedievo.medievoutils.Commands.Gamemode.Gamemode.registerGamemodeCommand;
@@ -25,5 +26,6 @@ public class CommandRegistry {
         registerCancelCommand();
         registerScoreboardCommand();
         registerWeatherChangeCommand();
+        registerAutoRestartCommand();
     }
 }

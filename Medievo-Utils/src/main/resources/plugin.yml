@@ -77,3 +77,6 @@ permissions:
   medievo.utils.lockweather:
     description: Permission for locking the weather.
     default: op
+  medievo.utils.autorestart:
+    description: Permission for setting the autorestart time.
+    default: op
