@@ -46,6 +46,9 @@ commands:
     usage: /lockweather
     description: Locks the weather.
     aliases: [lweather, lw]
+  autorestart:
+    usage: /autorestart
+    description: Sets the autorestart time.
 permissions:
   medievo.utils.gamemode:
     description: Permission for the gamemode command.
@@ -70,4 +73,7 @@ permissions:
     default: op
   medievo.utils.reloadscoreboard:
     description: Permission for reloading the scoreboard.
+    default: op
+  medievo.utils.lockweather:
+    description: Permission for locking the weather.
     default: op
