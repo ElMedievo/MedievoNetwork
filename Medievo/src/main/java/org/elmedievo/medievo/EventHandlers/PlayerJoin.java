@@ -52,7 +52,7 @@ public class PlayerJoin implements Listener {
         event.setJoinMessage(JOIN_MESSAGE_PREFIX +  player.getDisplayName() + JOIN_MESSAGE_SUFFIX);
         chatQueue.putIfAbsent(player.getName(), "global");
 
-        if (event.getPlayer().hasPlayedBefore()) {
+        if (!event.getPlayer().hasPlayedBefore()) {
             String firstJoinKit = "Starter";
             giveKit(player, firstJoinKit);
             player.sendMessage(ChatColor.GREEN + "\nYou received the kit " + ChatColor.BLUE + firstJoinKit + ChatColor.GREEN + " for being new on the server!");
