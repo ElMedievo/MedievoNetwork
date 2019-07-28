@@ -16,7 +16,7 @@ commands:
     description: Enables fly mode.
   broadcast:
     usage: /broadcast
-    description: Broadcasts a message,
+    description: Broadcasts a message.
     aliases: [br]
   head:
     usage: /head
@@ -49,6 +49,12 @@ commands:
   autorestart:
     usage: /autorestart
     description: Sets the autorestart time.
+  kit:
+    usage: /kit
+    description: Gives the player a kit.
+  kits:
+    usage: /kits
+    description: Display available kits.
 permissions:
   medievo.utils.gamemode:
     description: Permission for the gamemode command.
@@ -79,4 +85,7 @@ permissions:
     default: op
   medievo.utils.autorestart:
     description: Permission for setting the autorestart time.
+    default: op
+  medievo.utils.changekitstatus:
+    description: Permission for changing the status of the kits.
     default: op
