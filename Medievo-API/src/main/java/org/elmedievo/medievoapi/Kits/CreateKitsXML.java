@@ -39,6 +39,7 @@ public class CreateKitsXML {
 
         Element starterKit = new Element("kit");
         starterKit.setAttribute("name", "Starter");
+        starterKit.setAttribute("delay", "86400");
 
         Element objects = new Element("object");
         objects.setAttribute("id", "minecraft:bread");
