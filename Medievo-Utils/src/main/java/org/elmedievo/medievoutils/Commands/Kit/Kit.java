@@ -1,17 +1,15 @@
 package org.elmedievo.medievoutils.Commands.Kit;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.elmedievo.medievoutils.MedievoUtils;
 
-import static org.elmedievo.medievoapi.Kits.CheckKitExistance.kitExists;
+import static org.elmedievo.medievoapi.Kits.CooldownKits.CheckKitsCooldown;
+import static org.elmedievo.medievoapi.Kits.CheckKitExistence.kitExists;
 import static org.elmedievo.medievoutils.EventHandlers.KitsConfig.*;
 import static org.elmedievo.medievoutils.util.Generic.*;
-import static org.elmedievo.medievoapi.Kits.DeliverKit.giveKit;
-import static org.elmedievo.medievoapi.Util.Methods.Utility.upperCaseWords.upperCaseWords;
 
 public class Kit implements CommandExecutor {
 
@@ -22,13 +20,11 @@ public class Kit implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
         if (command.getName().equalsIgnoreCase("kit") && commandSender.hasPermission("medievo.utils.kit")){
+            Player player = (Player) commandSender;
             if (args.length == 1) {
                 if (getKitStatus()){                                                // Kits enabled
-                    // Give kit
                     if (kitExists(args[0])) {                                       // Kit exists
-                        Player player = (Player) commandSender;
-                        giveKit(player, args[0]);
-                        commandSender.sendMessage(ChatColor.GREEN + "Kit " + ChatColor.BLUE + upperCaseWords(args[0]) + ChatColor.GREEN + "successfully delivered" );
+                        CheckKitsCooldown(player, args[0]);                         // Check cooldown
                     } else {                                                        // Kit doesn't exist
                         commandSender.sendMessage(KIT_DOESNT_EXIST);
                     }
