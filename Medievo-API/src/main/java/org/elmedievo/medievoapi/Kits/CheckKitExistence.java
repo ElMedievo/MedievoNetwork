@@ -12,7 +12,7 @@ import java.io.File;
 
 import static org.elmedievo.medievoapi.Util.Methods.Utility.GetPluginFolder.getAPIFolder;
 
-public class CheckKitExistance {
+public class CheckKitExistence {
 
     public static boolean kitExists(String kit) {
         try {

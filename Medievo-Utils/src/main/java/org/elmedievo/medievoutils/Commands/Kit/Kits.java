@@ -9,7 +9,7 @@ import org.elmedievo.medievoutils.MedievoUtils;
 
 import java.util.List;
 
-import static org.elmedievo.medievoapi.Kits.CheckKitExistance.getKitsList;
+import static org.elmedievo.medievoapi.Kits.CheckKitExistence.getKitsList;
 import static org.elmedievo.medievoutils.util.Generic.TOO_MANY_ARGS;
 import static org.elmedievo.medievoutils.util.Generic.NO_AVAILABLE_KITS;
 
