@@ -45,17 +45,70 @@ public class CooldownKits {
                     if (secondsLeft > 0) {                                      // Cooling down
                         long hours = (secondsLeft / 3600);
                         long minutes = ((secondsLeft % 3600) / 60);
-                        long seconds = (secondsLeft % 60);
-                        if (hours <= 0 && minutes > 0) {
-                            String timeString = String.format("%02d min:%02d sec", minutes, seconds);
-                            player.sendMessage(ChatColor.YELLOW + "⚠ " + ChatColor.RED + "You must wait " + ChatColor.YELLOW + timeString + ChatColor.RED + " to get again the " + ChatColor.YELLOW + upperCaseWords(kit) + ChatColor.RED + "kit." );
-                        } if (minutes <= 0) {
-                            String timeString = String.format("%02d seconds", seconds);
-                            player.sendMessage(ChatColor.YELLOW + "⚠ " + ChatColor.RED + "You must wait " + ChatColor.YELLOW + timeString + ChatColor.RED + " to get again the " + ChatColor.YELLOW + upperCaseWords(kit) + ChatColor.RED + "kit." );
-                        } if (hours > 0) {
-                            String timeString = String.format("%02d h:%02d min:%02d sec", hours, minutes, seconds);
-                            player.sendMessage(ChatColor.YELLOW + "⚠ " + ChatColor.RED + "You must wait " + ChatColor.YELLOW + timeString + ChatColor.RED + " to get again the " + ChatColor.YELLOW + upperCaseWords(kit) + ChatColor.RED + "kit." );
+                        long seconds = (secondsLeft % 60);                      // Shitty code starts here
+
+                        String timeString = "";
+
+                        if (hours <= 0 && minutes > 0 && seconds > 0) {
+                            if (minutes <= 1 && seconds <= 1) {
+                                timeString = String.format("%d minute and %d second", minutes, seconds);
+                            }
+                            if (minutes <= 1 && seconds > 1) {
+                                timeString = String.format("%d minute and %d seconds", minutes, seconds);
+                            }
+                            if (minutes > 1 && seconds <= 1) {
+                                timeString = String.format("%d minutes and %d second", minutes, seconds);
+                            } if (minutes > 1 && seconds > 1) {
+                                timeString = String.format("%d minutes and %d seconds", minutes, seconds);
+                            }
+
+                        } if (hours < 1 && minutes <= 0) {
+                            if (seconds <= 1) {
+                                timeString = String.format("%d second", seconds);
+                            } else {
+                                timeString = String.format("%d seconds", seconds);
+                            }
+
+                        } if (hours > 0 && minutes > 0 && seconds > 0) {
+                            if (hours <= 1 && minutes <=1 && seconds <= 1) {
+                                timeString = String.format("%d hour, %d minute and %d second", hours, minutes, seconds);
+                            } if (hours <= 1 && minutes <= 1 && seconds > 1) {
+                                timeString = String.format("%d hour, %d minute and %d seconds", hours, minutes, seconds);
+                            } if (hours <= 1 && seconds <= 1 && minutes > 1) {
+                                timeString = String.format("%d hour, %d minutes and %d second", hours, minutes, seconds);
+                            } if (hours > 1 && minutes <= 1 && seconds > 1) {
+                                timeString = String.format("%d hours, %d minute and %d seconds", hours, minutes, seconds);
+                            } if (hours > 1 && minutes > 1 && seconds <= 1) {
+                                timeString = String.format("%d hours, %d minutes and %d second", hours, minutes, seconds);
+                            } if (hours > 1 && minutes > 1 && seconds > 1) {
+                                timeString = String.format("%d hours, %d minutes and %d seconds", hours, minutes, seconds);
+                            }
+
+                        } if (hours >= 1 && minutes < 1 && seconds >= 1) {
+                            if (hours <= 1 && seconds <= 1) {
+                                timeString = String.format("%d hour and %d second", hours, seconds);
+                            } if (hours > 1 && seconds > 1) {
+                                timeString = String.format("%d hours and %d seconds", hours, seconds);
+                            } if (hours > 1 && seconds <= 1) {
+                                timeString = String.format("%d hours and %d second", hours, seconds);
+                            } if (hours <= 1 && seconds > 1) {
+                                timeString = String.format("%d hour and %d seconds", hours, seconds);
+                            }
+                        } if (hours >= 1 && minutes < 1 && seconds < 1) {
+                            if (hours <= 1) {
+                                timeString = String.format("%d hour", hours);
+                            } if (hours > 1) {
+                                timeString = String.format("%d hours", hours);
+                            }
+                        } if (hours < 1 && minutes >= 1 && seconds <1) {
+                            if (minutes <= 1) {
+                                timeString = String.format("%d minute", minutes);
+                            } if (minutes > 1) {
+                                timeString = String.format("%d minutes", minutes);
+                            }
                         }
+
+                        player.sendMessage(ChatColor.YELLOW + "⚠ " + ChatColor.RED + "You must wait " + ChatColor.YELLOW + timeString + ChatColor.RED + " to get again the " + ChatColor.YELLOW + upperCaseWords(kit) + ChatColor.RED + "kit." );
                         return true;
                     }
                 }
