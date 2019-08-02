@@ -118,7 +118,7 @@ public class CooldownKits {
         cooldowns.put(String.valueOf(player), System.currentTimeMillis());
         cooldowns.put(kit, System.currentTimeMillis());
         giveKit(player, kit);
-        player.sendMessage(ChatColor.GREEN + "Kit " + ChatColor.BLUE + upperCaseWords(kit) + ChatColor.GREEN + "successfully delivered" );
+        player.sendMessage("\n" + ChatColor.GREEN + "Kit " + ChatColor.BLUE + upperCaseWords(kit) + ChatColor.GREEN + "successfully delivered" );
         return false;
     }
 }

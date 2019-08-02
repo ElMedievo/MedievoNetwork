@@ -2,9 +2,7 @@ package org.elmedievo.medievoapi.Util.Generic;
 
 import org.bukkit.ChatColor;
 
-import static org.elmedievo.medievoapi.Util.Generic.Prefixes.chatErrorPrefix;
-import static org.elmedievo.medievoapi.Util.Generic.Prefixes.consoleErrorPrefix;
-import static org.elmedievo.medievoapi.Util.Generic.Prefixes.successPrefix;
+import static org.elmedievo.medievoapi.Util.Generic.Prefixes.*;
 
 public class Messages {
     /* Error Messages */
@@ -44,6 +42,10 @@ public class Messages {
             NOT_ENOUGH_ALFONSOS = chatErrorPrefix + "You do not have enough alfonsos to purchase this item.",
             NOT_ENOUGH_GOLD_INGOTS = chatErrorPrefix + "The central bank only accepts gold ingots as payment method. You do not have enough ingots in your bank.",
             NUMBER_STRING_EXCEPTION =  chatErrorPrefix + "Number expected, received string instead";
+
+    /* Warning Messages */
+    public static String
+            KIT_DROPPED_ITEMS = "\n" + WARNING_ICON + "Since you don't have enough space in your inventory some items have been dropped.";
 
     /* Success Messages */
     public static String
