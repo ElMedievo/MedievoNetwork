@@ -52,18 +52,18 @@ public class DeliverKit {
                         } else {
                             World world = player.getWorld();
                             world.dropItem(player.getLocation(), itemToAdd);
-                            didItemsHaveBeenDropped = 1;
+                            ItemsDropped = 1;
                         }
                     } else {
                         World world = player.getWorld();
                         world.dropItem(player.getLocation(), itemToAdd);
-                        didItemsHaveBeenDropped = 1;
+                        ItemsDropped = 1;
                     }
                 }
             }
 
         }
-        if (didItemsHaveBeenDropped == 1) {
+        if (ItemsDropped == 1) {
             player.sendMessage(KIT_DROPPED_ITEMS);
         }
     }
