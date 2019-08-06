@@ -29,7 +29,7 @@ public class DeliverKit {
         SAXBuilder builder = new SAXBuilder();
         Document readKitsXML = builder.build(new File(getAPIFolder() + "/kits.xml"));
         Element root = readKitsXML.getRootElement();
-        int didItemsHaveBeenDropped = 0;
+        int ItemsDropped = 0;
 
         for (Element kits : root.getChildren("kit")) {
             String kitName = kits.getAttributeValue("name");
