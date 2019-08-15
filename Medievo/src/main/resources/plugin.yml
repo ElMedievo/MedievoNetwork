@@ -3,7 +3,7 @@ version: ${project.version}
 main: org.elmedievo.medievo.Medievo
 authors: [BGMP, BGMM, BGem]
 description: El nuevo plugin medieval
-api-version: 1.14
+api-version: 1.13
 commands:
   coordinates:
     usage: /coordinates
