@@ -13,7 +13,7 @@ import static org.elmedievo.medievo.util.EventRegistry.registerEvents;
 import static org.elmedievo.medievoapi.Util.Methods.Console.consoleAlert;
 import static org.elmedievo.medievoapi.Util.Methods.Console.consoleLog;
 
-// 1.14.3 Waypoint
+// 1.14.4 Waypoint
 
 public final class Medievo extends JavaPlugin {
 
