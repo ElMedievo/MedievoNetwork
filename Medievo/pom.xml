@@ -8,7 +8,7 @@
         <groupId>org.elmedievo</groupId>
         <artifactId>MedievoNetwork</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>1.14.4-SNAPSHOT</version>
+        <version>1.13.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>Medievo</artifactId>
@@ -38,13 +38,13 @@
         <dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.14.4-R0.1-SNAPSHOT</version>
+            <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.elmedievo</groupId>
             <artifactId>Medievo-API</artifactId>
-            <version>1.14.4-SNAPSHOT</version>
+            <version>1.13.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>org.elmedievo</groupId>
             <artifactId>Medievo-Utils</artifactId>
-            <version>1.14.4-SNAPSHOT</version>
+            <version>1.13.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
