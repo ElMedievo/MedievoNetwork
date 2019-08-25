@@ -9,4 +9,3 @@ This is the project which handles all of the Minecraft plugins used by the [Medi
 As in any other Maven project, simply clone the repository, and launch your command prompt within it upon decompression:
 
   > `mvn clean package`
-
