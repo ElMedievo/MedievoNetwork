@@ -1,5 +1,6 @@
 package org.elmedievo.medievo.EventHandlers;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.event.EventPriority;
 import org.elmedievo.medievo.Medievo;
@@ -22,6 +23,7 @@ import static org.elmedievo.medievoapi.Database.Setters.PlayerName.updatePlayerN
 import static org.elmedievo.medievoapi.Ranks.DeliverRanks.deliverRanks;
 import static org.elmedievo.medievoapi.Util.Generic.Prefixes.JOIN_MESSAGE_PREFIX;
 import static org.elmedievo.medievoapi.Util.Generic.Prefixes.JOIN_MESSAGE_SUFFIX;
+import static org.elmedievo.medievoapi.Kits.DeliverKit.giveKit;
 
 public class PlayerJoin implements Listener {
 
@@ -49,6 +51,12 @@ public class PlayerJoin implements Listener {
 
         event.setJoinMessage(JOIN_MESSAGE_PREFIX +  player.getDisplayName() + JOIN_MESSAGE_SUFFIX);
         chatQueue.putIfAbsent(player.getName(), "global");
+
+        if (!event.getPlayer().hasPlayedBefore()) {
+            String firstJoinKit = "Starter";
+            giveKit(player, firstJoinKit);
+            player.sendMessage(ChatColor.GREEN + "\nYou received the kit " + ChatColor.BLUE + firstJoinKit + ChatColor.GREEN + " for being new on the server!");
+        }
     }
 
     public static void registerPlayerJoinEvent() {
