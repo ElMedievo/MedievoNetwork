@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Parser {
 
-    public static Location parseLocation(ConfigurationSection section){
+    public static Location parseLocation(ConfigurationSection section) {
         World world = parseWorld(Objects.requireNonNull(section.getString("world")));
         double x = section.getDouble("x");
         double y = section.getDouble("y");
