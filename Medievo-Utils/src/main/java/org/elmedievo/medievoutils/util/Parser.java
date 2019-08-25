@@ -19,7 +19,7 @@ public class Parser {
         return new Location(world, x, y, z, yaw, pitch);
     }
 
-    private static World parseWorld(String string){
+    private static World parseWorld(String string) {
         switch (string){
             case "nether":
                 return Bukkit.getWorlds().get(1);
