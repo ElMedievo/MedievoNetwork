@@ -6,7 +6,6 @@ import org.elmedievo.medievoapi.Database.Connect;
 
 import static org.elmedievo.medievoapi.Ranks.CreateRanksXML.createRanksXMLFile;
 import static org.elmedievo.medievoapi.Ranks.CreateRanksYML.createRanksYML;
-import static org.elmedievo.medievoapi.Kits.CreateKitsXML.createKitsXMLFile;
 import static org.elmedievo.medievoapi.Ranks.CreateRanksYML.getRanksYML;
 import static org.elmedievo.medievoapi.Ranks.CreateRanksYML.saveRanksYML;
 import static org.elmedievo.medievoapi.Util.CentralBank.generateCentralBank;
@@ -45,7 +44,5 @@ public final class MedievoAPI extends JavaPlugin {
         saveRanksYML();
         /* Ranks XML Data */
         createRanksXMLFile();
-        /* Kits XML Data */
-        createKitsXMLFile();
     }
 }

@@ -16,7 +16,6 @@ public class Generic {
     public static String
             NO_GAMEMODE_MATCHED = chatErrorPrefix + "No gamemode matched query.",
             NO_PLAYERS_MATCHED = chatErrorPrefix + "No players matched query.",
-            GENERIC_SYNTAX_ERROR = chatErrorPrefix + "Syntax error.",
             TOO_MANY_ARGS = chatErrorPrefix + "Too many arguments.",
             TOO_FEW_ARGS = chatErrorPrefix + "Too few arguments.",
             NO_CONSOLE = consoleErrorPrefix + "You must be a player to execute this command.",
@@ -24,15 +23,7 @@ public class Generic {
             INVALID_COORDINATES = chatErrorPrefix + "Invalid coordinates.",
             INVALID_TIME_PERIOD = chatErrorPrefix + "Invalid time period!",
             NOBODY_TO_REPLY_TO = chatErrorPrefix + "You have nobody to reply to.",
-            ALREADY_RESTARTING = chatErrorPrefix + "A server restart is already queued!",
-            KIT_STATUS_HELP = "\n" + ChatColor.RED + "The status of the kits can only be set to " + ChatColor.YELLOW + "TRUE " + ChatColor.RED + "or " + ChatColor.YELLOW + "FALSE",
-            KIT_IS_ALREADY_TRUE = chatErrorPrefix + "The kits are already activated!",
-            KIT_IS_ALREADY_FALSE = chatErrorPrefix + "The kits are already deactivated!",
-            KIT_STATUS_ENABLED = WARNING_ICON + "Kits have been enabled!",
-            KIT_STATUS_DISABLED = WARNING_ICON + "Kits have been disabled!",
-            NO_AVAILABLE_KITS = chatErrorPrefix + "There is not kit available.",
-            KITS_DISABLED = chatErrorPrefix + "Currently the kits are disabled.",
-            KIT_DOESNT_EXIST = chatErrorPrefix + "That kit doesn't exist. Type " + ChatColor.YELLOW + "/kits " + ChatColor.RED + "to see all available kits.";
+            ALREADY_RESTARTING = chatErrorPrefix + "A server restart is already queued!";
 
     private static String successPrefix = ChatColor.GREEN + "";
     public static String

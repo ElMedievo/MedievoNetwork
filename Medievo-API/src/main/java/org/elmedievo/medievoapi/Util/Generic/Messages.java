@@ -2,7 +2,9 @@ package org.elmedievo.medievoapi.Util.Generic;
 
 import org.bukkit.ChatColor;
 
-import static org.elmedievo.medievoapi.Util.Generic.Prefixes.*;
+import static org.elmedievo.medievoapi.Util.Generic.Prefixes.chatErrorPrefix;
+import static org.elmedievo.medievoapi.Util.Generic.Prefixes.consoleErrorPrefix;
+import static org.elmedievo.medievoapi.Util.Generic.Prefixes.successPrefix;
 
 public class Messages {
     /* Error Messages */
@@ -12,7 +14,6 @@ public class Messages {
             RANKS_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating ranks.xml file.",
             RANKS_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating ranks.yml file.",
             RANKS_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving ranks.yml file.",
-            KITS_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating kits.xml file.",
             MARKET_DATA_CANNOT_CREATE = consoleErrorPrefix + "An internal error has occurred while generating market.yml file.",
             MARKET_DATA_CANNOT_SAVE = consoleErrorPrefix + "An internal error has occurred while saving market.yml file",
             TOO_MANY_ARGS = chatErrorPrefix + "Too many arguments.",
@@ -43,10 +44,6 @@ public class Messages {
             NOT_ENOUGH_GOLD_INGOTS = chatErrorPrefix + "The central bank only accepts gold ingots as payment method. You do not have enough ingots in your bank.",
             NUMBER_STRING_EXCEPTION =  chatErrorPrefix + "Number expected, received string instead";
 
-    /* Warning Messages */
-    public static String
-            KIT_DROPPED_ITEMS = "\n" + WARNING_ICON + "Since you don't have enough space in your inventory some items have been dropped.";
-
     /* Success Messages */
     public static String
             LOADED_CONFIG = successPrefix + "Plugin configuration was successfully loaded.",
@@ -54,8 +51,6 @@ public class Messages {
             RANKS_FILE_NOT_FOUND = successPrefix + "ranks.xml file not found. Creating one...",
             RANKS_DATA_FILE_FOUND = successPrefix + "Successfully loaded ranks.yml.",
             RANKS_DATA_FILE_NOT_FOUND = successPrefix + "ranks.yml was not found. Creating...",
-            KITS_FILE_FOUND = successPrefix + "Successfully loaded kits.xml.",
-            KITS_FILE_NOT_FOUND = successPrefix + "kits.xml file not found. Creating one...",
             MARKET_DATA_FILE_FOUND = successPrefix + "Successfully loaded the market.yml file",
             MARKET_DATA_FILE_NOT_FOUND = successPrefix + "market.yml was not found. Creating...",
             SQL_CONNECT_SUCCESS = successPrefix + "Connected to SQL database successfully.",

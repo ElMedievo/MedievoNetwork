@@ -4,7 +4,6 @@ import static org.elmedievo.medievoutils.EventHandlers.PlayerJoin.registerPlayer
 import static org.elmedievo.medievoutils.EventHandlers.PlayerKill.registerPlayerKillEvent;
 import static org.elmedievo.medievoutils.EventHandlers.WeatherChange.registerWeatherChangeEvent;
 import static org.elmedievo.medievoutils.Scoreboard.Scoreboard.registerScoreboardEvents;
-import static org.elmedievo.medievoutils.EventHandlers.KitsConfig.registerKitsConfigEvent;
 
 public class EventRegistry {
     public static void registerEvents() {
@@ -12,6 +11,5 @@ public class EventRegistry {
         registerScoreboardEvents();
         registerPlayerJoinEvent();
         registerWeatherChangeEvent();
-        registerKitsConfigEvent();
     }
 }
